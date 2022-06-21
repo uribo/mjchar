@@ -15,6 +15,6 @@ search_mojikiban(x, input_type)
 Search kanji on mojikiban
 }
 \examples{
-search_mojikiban("\u74dc", input_type = "font")
+search_mojikiban("\U74dc", input_type = "font")
 search_mojikiban("MJ017521", "mjcode")
 }

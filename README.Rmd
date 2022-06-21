@@ -37,10 +37,33 @@ library(mjchar)
 ```
 
 ```{r}
-x <- "\u74dc"
-x
+(x <- "\U74dc")
+
+(y <- "\U771f")
+```
+
+### MJ文字情報
+
+漢字についての情報を確認することができます。
+
+```{r}
+# 文字情報基盤検索システムへのリンクを表示します
 search_mojikiban(x, input_type = "font")
 
 moji_to_mjcode(x)
+
+moji_information(y)
+```
+
+### 漢字施策
+
+対象の漢字が常用漢字・人名用漢字に含まれるかを判定します。
+
+```{r}
+is_jyouyou_kanji(x)
+is_jyouyou_kanji(y)
+
+is_jinmeiyou_kanji(x)
+is_jinmeiyou_kanji(y)
 ```
 

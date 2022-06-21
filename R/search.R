@@ -2,7 +2,7 @@
 #' @param x kanji character or mjcode
 #' @param input_type font or mjcode
 #' @examples
-#' search_mojikiban("\u74dc", input_type = "font")
+#' search_mojikiban("\U74dc", input_type = "font")
 #' search_mojikiban("MJ017521", "mjcode")
 #' @export
 search_mojikiban <- function(x, input_type) {
