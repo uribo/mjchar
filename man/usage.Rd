@@ -3,11 +3,17 @@
 \name{is_jyouyou_kanji}
 \alias{is_jyouyou_kanji}
 \alias{is_jinmeiyou_kanji}
+\alias{kakusu}
+\alias{busyu}
 \title{Check how Kanji characters are used}
 \usage{
 is_jyouyou_kanji(x)
 
 is_jinmeiyou_kanji(x)
+
+kakusu(x)
+
+busyu(x)
 }
 \arguments{
 \item{x}{kanji character}
@@ -16,8 +22,11 @@ is_jinmeiyou_kanji(x)
 Check how Kanji characters are used
 }
 \examples{
-is_jyouyou_kanji("\U74dc")
+is_jyouyou_kanji("\U74DC")
 is_jyouyou_kanji("\U6A39")
 
-is_jinmeiyou_kanji("\U74dc")
+is_jinmeiyou_kanji("\U74DC")
+
+kakusu("\U74DC")
+busyu("\U74DC")
 }

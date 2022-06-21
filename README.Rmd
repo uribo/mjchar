@@ -55,9 +55,16 @@ moji_to_mjcode(x)
 moji_information(y)
 ```
 
-### 漢字施策
+### 漢字の使われ方
 
-対象の漢字が常用漢字・人名用漢字に含まれるかを判定します。
+- 読み
+- 漢字施策: 対象の漢字が常用漢字・人名用漢字に含まれるかを判定します。
+- 画数、部首の確認
+
+```{r}
+moji_to_yomi(x)
+moji_to_yomi(y)
+```
 
 ```{r}
 is_jyouyou_kanji(x)
@@ -65,5 +72,10 @@ is_jyouyou_kanji(y)
 
 is_jinmeiyou_kanji(x)
 is_jinmeiyou_kanji(y)
+```
+
+```{r}
+kakusu("\U74DC")
+busyu("\U74DC")
 ```
 

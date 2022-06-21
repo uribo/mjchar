@@ -11,7 +11,9 @@ Depends:
 LazyData: true
 Imports: 
     cli,
-    rlang
+    purrr,
+    rlang,
+    stringr
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
