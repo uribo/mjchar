@@ -1,6 +1,15 @@
-## code to prepare `mji` dataset goes here
+#################################
+# MJ文字情報一覧表
+# Ver.006.01
+#################################
 if (!file.exists("data-raw/mji.00601.xlsx")) {
-  # download.file()
+  dl_file <- "https://moji.or.jp/wp-content/mojikiban/oscdl/mji.00601-xlsx.zip"
+  download.file(
+    dl_file,
+    destfile = paste0("data-raw/", basename(dl_file)))
+  unzip(paste0("data-raw/", basename(dl_file)),
+        exdir = "data-raw")
+  usethis::use_git_ignore(c("*.xlsx", "*.zip"))
 }
 
 mji <-
