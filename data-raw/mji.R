@@ -20,4 +20,22 @@ mji <-
                                   # stringi::stri_escape_unicode(mji$font[1])
                                   rep("skip", 34)))
 
-usethis::use_data(mji, overwrite = TRUE, internal = TRUE)
+mji_full <-
+  readxl::read_xlsx("data-raw/mji.00601.xlsx",
+                    col_types = c("skip",
+                                  rep("text", 4),
+                                  rep("text", 10),
+                                  "numeric",
+                                  "text",
+                                  "numeric",
+                                  rep("text", 1),
+                                  rep("numeric", 6),
+                                  # 本来はnumeric
+                                  rep("text", 2),
+                                  "numeric",
+                                  "text",
+                                  rep("numeric", 5),
+                                  rep("text", 2),
+                                  "skip"))
+
+usethis::use_data(mji, mji_full, overwrite = TRUE, internal = TRUE)
