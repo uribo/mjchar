@@ -4,14 +4,18 @@
 \alias{moji_information}
 \title{List for moji information}
 \usage{
-moji_information(x)
+moji_information(x, .keep_dictionary_page = FALSE)
 }
 \arguments{
 \item{x}{kanji character}
+
+\item{.keep_dictionary_page}{Whether to include page numbers in the
+various dictionaries.}
 }
 \description{
 List for moji information
 }
 \examples{
 moji_information("\U74dc")
+moji_information("\U74dc", .keep_dictionary_page = TRUE)
 }
