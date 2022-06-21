@@ -9,18 +9,22 @@ search_mojikiban <- function(x, input_type) {
   input_type <- rlang::arg_match(input_type,
                                  c("font", "mjcode"))
   if (input_type == "font") {
-    font <-
-      subset(mji, subset = `font` == x)[[1]]
+    df <-
+      subset(mji, subset = `font` == x)
   } else if (input_type == "mjcode") {
-    font <-
-      mji[which(mji[[2]] == x), ][[1]]
+    df <-
+      mji[which(mji[[2]] == x), ]
   }
+  font <-
+    df[[1]]
+  mj <-
+    df[[2]]
   cli::style_hyperlink(
     font,
     paste0("https://moji.or.jp/mojikibansearch/info?",
            intToUtf8(c(77, 74, 25991, 23383, 22259, 24418, 21517)),
            "=",
-           x))
+           mj))
 }
 
 notfound_moji_tbl <- function(x) {
