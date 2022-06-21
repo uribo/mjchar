@@ -9,16 +9,18 @@
 #' @rdname usage
 #' @export
 is_jyouyou_kanji <- function(x) {
+  font <- NULL
   identical(
-    moji_information(x)[[11]],
+    subset(mji_full, subset = `font` == x)[[11]],
     intToUtf8(c(24120L, 29992L, 28450L, 23383L)))
 }
 
 #' @rdname usage
 #' @export
 is_jinmeiyou_kanji <- function(x) {
+  font <- NULL
   identical(
-    moji_information(x)[[11]],
+    subset(mji_full, subset = `font` == x)[[11]],
     intToUtf8(c(20154L, 21517L, 29992L, 28450L, 23383L)))
 }
 
