@@ -4,8 +4,10 @@
 #' @examples
 #' is_jyouyou_kanji("\U74DC")
 #' is_jyouyou_kanji("\U6A39")
+#' is_jyouyou_kanji(c("\u8af8", "\u884c", "\u7121", "\u5e38"))
 #'
 #' is_jinmeiyou_kanji("\U74DC")
+#' is_jinmeiyou_kanji(c("\u590f", "\u76ee", "\u6f31", "\u77f3"))
 #'
 #' kakusu("\U74DC")
 #' busyu("\U74DC")
@@ -13,18 +15,22 @@
 #' @export
 is_jyouyou_kanji <- function(x) {
   font <- NULL
-  identical(
-    subset(mji_full, subset = `font` == x)[[11]],
-    intToUtf8(c(24120L, 29992L, 28450L, 23383L)))
+  purrr::map_lgl(
+    x,
+    ~ identical(
+      subset(mji_full, subset = `font` == .x)[[11]],
+      intToUtf8(c(24120L, 29992L, 28450L, 23383L))))
 }
 
 #' @rdname usage
 #' @export
 is_jinmeiyou_kanji <- function(x) {
   font <- NULL
-  identical(
-    subset(mji_full, subset = `font` == x)[[11]],
-    intToUtf8(c(20154L, 21517L, 29992L, 28450L, 23383L)))
+  purrr::map_lgl(
+    x,
+    ~ identical(
+      subset(mji_full, subset = `font` == .x)[[11]],
+      intToUtf8(c(20154L, 21517L, 29992L, 28450L, 23383L))))
 }
 
 #' @rdname usage
@@ -50,4 +56,3 @@ busyu <- function(x) {
                 names(df),
                 intToUtf8(c(37096L, 39318L))))
 }
-

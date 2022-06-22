@@ -1,8 +1,16 @@
 test_that("is...", {
   expect_true(is_jyouyou_kanji("\U6A39"))
   expect_false(is_jyouyou_kanji("\U74DC"))
+  expect_equal(
+    is_jyouyou_kanji(c("\u8af8", "\u884c", "\u7121", "\u5e38")),
+    c(FALSE, TRUE, TRUE, TRUE)
+  )
 
   expect_true(is_jinmeiyou_kanji("\U74DC"))
+  expect_equal(
+    is_jinmeiyou_kanji(c("\u590f", "\u76ee", "\u6f31", "\u77f3")),
+    c(FALSE, FALSE, TRUE, FALSE)
+  )
 })
 
 test_that("kakusu and busyu", {

@@ -24,8 +24,10 @@ Check how Kanji characters are used
 \examples{
 is_jyouyou_kanji("\U74DC")
 is_jyouyou_kanji("\U6A39")
+is_jyouyou_kanji(c("\u8af8", "\u884c", "\u7121", "\u5e38"))
 
 is_jinmeiyou_kanji("\U74DC")
+is_jinmeiyou_kanji(c("\u590f", "\u76ee", "\u6f31", "\u77f3"))
 
 kakusu("\U74DC")
 busyu("\U74DC")
