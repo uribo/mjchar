@@ -15,6 +15,7 @@ search_mojikiban <- function(x, input_type) {
     df <-
       mji[which(mji[[2]] == x), ]
   }
+  notfound_moji_tbl(df)
   font <-
     df[[1]]
   mj <-
