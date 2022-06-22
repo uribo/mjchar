@@ -16,9 +16,21 @@ mji <-
   readxl::read_xlsx("data-raw/mji.00601.xlsx",
                     col_types = c("skip",
                                   rep("text", 2),
-                                  # 対応するUCS、実装したUCSはskipfontから判別できる
+                                  # ~~対応するUCS、実装したUCSはskipfontから判別できる~~
                                   # stringi::stri_escape_unicode(mji$font[1])
+                                  # 実装なしとなっているものもある --> ~~ucsから復元~~
                                   rep("skip", 34)))
+
+mji <-
+  purrr::set_names(mji,
+                 c("font", "mjcode"))
+
+# mji <-
+#   purrr::update_list(mji,
+#                      font2 = stringi::stri_unescape_unicode(tolower(stringr::str_remove(stringr::str_c("\\", mji$ucs), "\\+"))))
+#
+# mji[which(mji$font == "実装なし"), ][[1]] <- mji[which(mji$font == "実装なし"), ][[4]]
+
 
 mji_full <-
   readxl::read_xlsx("data-raw/mji.00601.xlsx",
